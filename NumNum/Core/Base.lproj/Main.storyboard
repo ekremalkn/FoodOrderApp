@@ -37,7 +37,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D26-PX-wDk">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="431"/>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7FO-1K-5d9">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7FO-1K-5d9">
                                                     <rect key="frame" x="16" y="431" width="361" height="126"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Delivery At Your Doorstep" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqg-7Q-FDy">
@@ -184,17 +184,21 @@
             </objects>
             <point key="canvasLocation" x="2205" y="-35"/>
         </scene>
-        <!--View Controller-->
+        <!--NumNum-->
         <scene sceneID="uGO-De-BsR">
             <objects>
-                <viewController id="2nX-w1-pSN" sceneMemberID="viewController">
+                <viewController id="2nX-w1-pSN" customClass="HomeController" customModule="NumNum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lRr-vz-Scj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="HsP-Im-C9N"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i9k-dj-F1c"/>
+                    <navigationItem key="navigationItem" title="NumNum" largeTitleDisplayMode="always" id="i9k-dj-F1c">
+                        <barButtonItem key="rightBarButtonItem" image="cart.fill" catalog="system" id="9Zu-aK-rg1">
+                            <color key="tintColor" red="0.1666220427" green="0.65792578459999995" blue="0.53711551430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mt-ag-Sve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,6 +213,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7ln-yE-d1U">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -256,6 +263,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

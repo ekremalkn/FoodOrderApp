@@ -1,0 +1,6 @@
+module Pods_NumNum {
+  umbrella header "Pods-NumNum-umbrella.h"
+
+  export *
+  module * { export * }
+}
