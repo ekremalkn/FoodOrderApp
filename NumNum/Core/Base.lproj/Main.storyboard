@@ -191,14 +191,44 @@
                     <view key="view" contentMode="scaleToFill" id="lRr-vz-Scj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EGc-BV-vWe">
+                                <rect key="frame" x="0.0" y="103" width="393" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Kcp-Qu-VVJ"/>
+                                    <constraint firstAttribute="width" constant="393" id="dHV-RN-zGd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EmM-3o-6bi">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2nX-w1-pSN" id="rPD-3H-A0a"/>
+                                    <outlet property="delegate" destination="2nX-w1-pSN" id="G3U-X5-NV2"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HsP-Im-C9N"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EGc-BV-vWe" firstAttribute="leading" secondItem="HsP-Im-C9N" secondAttribute="leading" id="aRe-VQ-H9o"/>
+                            <constraint firstItem="HsP-Im-C9N" firstAttribute="bottom" secondItem="EGc-BV-vWe" secondAttribute="bottom" constant="516" id="gPS-6X-pId"/>
+                            <constraint firstItem="EGc-BV-vWe" firstAttribute="top" secondItem="HsP-Im-C9N" secondAttribute="top" id="mcQ-X4-JxN"/>
+                            <constraint firstItem="EGc-BV-vWe" firstAttribute="trailing" secondItem="HsP-Im-C9N" secondAttribute="trailing" id="oSb-9p-taz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NumNum" largeTitleDisplayMode="always" id="i9k-dj-F1c">
                         <barButtonItem key="rightBarButtonItem" image="cart.fill" catalog="system" id="9Zu-aK-rg1">
                             <color key="tintColor" red="0.1666220427" green="0.65792578459999995" blue="0.53711551430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="topCollection" destination="EGc-BV-vWe" id="pcJ-QP-xCa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mt-ag-Sve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

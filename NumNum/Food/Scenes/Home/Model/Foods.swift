@@ -21,9 +21,20 @@ struct DataClass: Codable {
 }
 
 // MARK: - Category
-struct Category: Codable {
+struct Category: Codable, CategoryViewCellProtocol {
     let id, title: String?
     let image: String?
+    
+    //MARK: - CategoryCellProtocol
+    var categoryCellİmage: String {
+        image ?? ""
+    }
+    
+    var catergoryCellLabel: String {
+        title ?? ""
+    }
+    
+
 }
 
 // MARK: - Popular

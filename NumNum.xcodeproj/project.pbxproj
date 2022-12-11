@@ -12,6 +12,9 @@
 		F0351918293D17EC00A5A97A /* HomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0351917293D17EC00A5A97A /* HomeHelper.swift */; };
 		F035191B293D181900A5A97A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035191A293D181900A5A97A /* NetworkManager.swift */; };
 		F035191D293D182400A5A97A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035191C293D182400A5A97A /* NetworkHelper.swift */; };
+		F04ED6172946533100583E52 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04ED6152946533100583E52 /* CategoryViewCell.swift */; };
+		F04ED6182946533100583E52 /* CategoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04ED6162946533100583E52 /* CategoryViewCell.xib */; };
+		F04ED61B294655E200583E52 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F04ED61A294655E200583E52 /* SDWebImage */; };
 		F05F1D85293A768A00595ACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F1D84293A768A00595ACE /* AppDelegate.swift */; };
 		F05F1D87293A768A00595ACE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F1D86293A768A00595ACE /* SceneDelegate.swift */; };
 		F05F1D8C293A768A00595ACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05F1D8A293A768A00595ACE /* Main.storyboard */; };
@@ -34,6 +37,8 @@
 		F0351917293D17EC00A5A97A /* HomeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHelper.swift; sourceTree = "<group>"; };
 		F035191A293D181900A5A97A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F035191C293D182400A5A97A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		F04ED6152946533100583E52 /* CategoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCell.swift; sourceTree = "<group>"; };
+		F04ED6162946533100583E52 /* CategoryViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewCell.xib; sourceTree = "<group>"; };
 		F05F1D81293A768A00595ACE /* NumNum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumNum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05F1D84293A768A00595ACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05F1D86293A768A00595ACE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04ED61B294655E200583E52 /* SDWebImage in Frameworks */,
 				3237515A6F9EBBCE75D90DA0 /* libPods-NumNum.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +101,15 @@
 				F035191C293D182400A5A97A /* NetworkHelper.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		F04ED614294652DF00583E52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F04ED6152946533100583E52 /* CategoryViewCell.swift */,
+				F04ED6162946533100583E52 /* CategoryViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F05F1D78293A768A00595ACE = {
@@ -229,6 +244,7 @@
 				F0C9324F293B5FDC00F359A6 /* Model */,
 				F0C9324E293B5FD700F359A6 /* View */,
 				F0C9324D293B5FC800F359A6 /* ViewModel */,
+				F04ED614294652DF00583E52 /* Cells */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -274,6 +290,9 @@
 			dependencies = (
 			);
 			name = NumNum;
+			packageProductDependencies = (
+				F04ED61A294655E200583E52 /* SDWebImage */,
+			);
 			productName = NumNum;
 			productReference = F05F1D81293A768A00595ACE /* NumNum.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +321,9 @@
 				Base,
 			);
 			mainGroup = F05F1D78293A768A00595ACE;
+			packageReferences = (
+				F04ED619294655E200583E52 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = F05F1D82293A768A00595ACE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -318,6 +340,7 @@
 			files = (
 				F05F1D94293A768C00595ACE /* LaunchScreen.storyboard in Resources */,
 				F05F1D91293A768C00595ACE /* Assets.xcassets in Resources */,
+				F04ED6182946533100583E52 /* CategoryViewCell.xib in Resources */,
 				F05F1D8C293A768A00595ACE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +383,7 @@
 				F035191D293D182400A5A97A /* NetworkHelper.swift in Sources */,
 				F05F1DAB293A807500595ACE /* OnboardingCell.swift in Sources */,
 				F0351916293D17DF00A5A97A /* HomeManager.swift in Sources */,
+				F04ED6172946533100583E52 /* CategoryViewCell.swift in Sources */,
 				F0943EDC293E7685004630CC /* HomeController.swift in Sources */,
 				F05F1D87293A768A00595ACE /* SceneDelegate.swift in Sources */,
 				F0943EDA293E6F7A004630CC /* HomeViewModel.swift in Sources */,
@@ -586,6 +610,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F04ED619294655E200583E52 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F04ED61A294655E200583E52 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F04ED619294655E200583E52 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F05F1D8D293A768A00595ACE /* NumNum.xcdatamodeld */ = {

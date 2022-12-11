@@ -16,8 +16,16 @@ class HomeManager: HomeManagerProtocol {
     static let shared = HomeManager()
     
     func getCategoryFoods(type: HomeEndpoint, onSuccess: @escaping(Foods?) -> (), onError: @escaping (AFError) -> ()) {
-        let url = HomeEndpoint.fetchAllCategories.path
-        print(url)
+        var url = ""
+        
+        switch type {
+        case .fetchAllCategories:
+            url = HomeEndpoint.fetchAllCategories.path
+        case .placeOrder:
+            url = HomeEndpoint.placeOrder.path
+        case .fetchOrders:
+            url = HomeEndpoint.fetchOrders.path
+        }
         
         NetworkManager.shared.request(path: url) { (response: Foods) in
             onSuccess(response)
@@ -27,6 +35,8 @@ class HomeManager: HomeManagerProtocol {
 
 
     }
+    
+    
     
     
 }

@@ -17,7 +17,7 @@ enum FoodCategory {
 
 enum HomeEndpoint: String {
     case fetchAllCategories = "/dish-categories"
-   // case placeOrder = "/orders/\(dishId)"
+    case placeOrder = "/orders/"
     //case fetchCategoryDishes = "/dishes/\(categoryId)"
     case fetchOrders = "/orders"
     
@@ -25,8 +25,8 @@ enum HomeEndpoint: String {
         switch self {
         case .fetchAllCategories:
             return NetworkHelper.shared.requestUrl(url: HomeEndpoint.fetchAllCategories.rawValue)
-        //case .placeOrder:
-           // return NetworkHelper.shared.requestUrl(url: HomeEndpoint.placeOrder.rawValue)
+        case .placeOrder:
+            return NetworkHelper.shared.requestUrl(url: HomeEndpoint.placeOrder.rawValue)
        // case .fetchCategoryDishes:
         //    return NetworkHelper.shared.requestUrl(url: HomeEndpoint.fetchCategoryDishes.rawValue)
         case .fetchOrders:
