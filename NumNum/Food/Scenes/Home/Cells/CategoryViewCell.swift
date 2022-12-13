@@ -13,6 +13,7 @@ protocol CategoryViewCellProtocol {
     var catergoryCellLabel: String { get }
 }
 class CategoryViewCell: UICollectionViewCell {
+    
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var label: UILabel!
     
@@ -20,7 +21,7 @@ class CategoryViewCell: UICollectionViewCell {
         label.text = data.catergoryCellLabel
         image.sd_setImage(with: URL(string: data.categoryCellİmage))
     }
-
-}
     
+}
+
 

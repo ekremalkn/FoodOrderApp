@@ -16,31 +16,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-w3-AG6">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-w3-AG6">
                         <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="104" id="ZWI-YO-NjR"/>
                             <constraint firstAttribute="height" constant="104" id="s14-cD-zSx"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMg-mK-cGq">
-                        <rect key="frame" x="8" y="72" width="96" height="24"/>
-                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="17"/>
-                        <color key="textColor" red="0.1666220427" green="0.65792578459999995" blue="0.53711551430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMg-mK-cGq">
+                        <rect key="frame" x="4" y="84" width="96" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="13"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="PZE-w3-AG6" secondAttribute="bottom" id="DEE-pJ-Bms"/>
                 <constraint firstItem="PZE-w3-AG6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DUS-if-Hl3"/>
-                <constraint firstAttribute="bottom" secondItem="WMg-mK-cGq" secondAttribute="bottom" constant="8" id="GON-is-jOI"/>
-                <constraint firstAttribute="trailing" secondItem="WMg-mK-cGq" secondAttribute="trailing" id="Jay-Ec-vDE"/>
                 <constraint firstItem="PZE-w3-AG6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Sc4-Z0-Yhf"/>
                 <constraint firstAttribute="trailing" secondItem="PZE-w3-AG6" secondAttribute="trailing" id="a62-fM-1oQ"/>
-                <constraint firstItem="WMg-mK-cGq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="qd1-fR-dzD"/>
-                <constraint firstItem="WMg-mK-cGq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="72" id="qwf-s1-Eo8"/>
             </constraints>
             <connections>
                 <outlet property="image" destination="PZE-w3-AG6" id="lsw-X6-E7q"/>

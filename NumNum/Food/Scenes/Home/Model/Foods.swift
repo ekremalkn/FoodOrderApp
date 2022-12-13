@@ -12,12 +12,14 @@ struct Foods: Codable {
     let status: Int?
     let message: String?
     let data: DataClass?
+    
+    
 }
 
 // MARK: - DataClass
 struct DataClass: Codable {
     let categories: [Category]?
-    let populars, specials: [Popular]?
+    let populars, specials: [Dishes]?
 }
 
 // MARK: - Category
@@ -34,18 +36,68 @@ struct Category: Codable, CategoryViewCellProtocol {
         title ?? ""
     }
     
-
+    
 }
 
-// MARK: - Popular
-struct Popular: Codable {
+// MARK: - Dish
+struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol {
     let id, name, popularDescription: String?
     let image: String?
     let calories: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case popularDescription = "description"
         case image, calories
     }
+    
+    //MARK: - DishesViewCellProtocol
+    
+    var dishesCellImage: String {
+        image ?? ""
+    }
+    
+    var dishesCellTitle: String {
+        name ?? ""
+    }
+    
+    var dishesCellCalorie: String {
+        if let calories = calories {
+            return "\(calories)"
+        }
+        return ""
+    }
+    
+    var dishesCellDescription: String {
+        popularDescription ?? ""
+        
+    }
+    
+    //MARK: -  SpecialDishesViewCellProtocol
+    
+    var specialImage: String {
+        image ?? ""
+    }
+    
+    var specialTitle: String {
+        name ?? ""
+        
+    }
+    
+    var specialDescription: String {
+        popularDescription ?? ""
+        
+    }
+    
+    var specialCalorie: String {
+        if let calories = calories {
+            return "\(calories)"
+        }
+        return ""
+        
+    }
+    
+    
 }
+
+

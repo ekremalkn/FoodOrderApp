@@ -7,30 +7,24 @@
 
 import Foundation
 
-enum FoodCategory {
-    case snacks
-    case pizzas
-    case nigerianDishes
-    case vegetarian
-    case seaFoods
-}
-
-enum HomeEndpoint: String {
-    case fetchAllCategories = "/dish-categories"
-    case placeOrder = "/orders/"
-    //case fetchCategoryDishes = "/dishes/\(categoryId)"
-    case fetchOrders = "/orders"
+enum HomeEndpoint {
+    case fetchAllCategories
+    case placeOrder(String)
+    case fetchCategoryDishes(String)
+    case fetchOrders
     
     var path: String {
         switch self {
         case .fetchAllCategories:
-            return NetworkHelper.shared.requestUrl(url: HomeEndpoint.fetchAllCategories.rawValue)
-        case .placeOrder:
-            return NetworkHelper.shared.requestUrl(url: HomeEndpoint.placeOrder.rawValue)
-       // case .fetchCategoryDishes:
-        //    return NetworkHelper.shared.requestUrl(url: HomeEndpoint.fetchCategoryDishes.rawValue)
+            return NetworkHelper.shared.requestUrl(url: "/dish-categories")
+        case .placeOrder(let dishID):
+            return NetworkHelper.shared.requestUrl(url: "/orders/\(dishID)")
+        case .fetchCategoryDishes(let catID):
+            return NetworkHelper.shared.requestUrl(url: "/dishes/\(catID)")
         case .fetchOrders:
-            return NetworkHelper.shared.requestUrl(url: HomeEndpoint.fetchOrders.rawValue)
+            return NetworkHelper.shared.requestUrl(url: "/orders")
         }
     }
 }
+
+

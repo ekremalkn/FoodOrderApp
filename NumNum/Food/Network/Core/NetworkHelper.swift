@@ -9,7 +9,7 @@ import Foundation
 
 enum NetworkEndPoint: String {
     case BASE_URL = "https://yummie.glitch.me"
-
+    
 }
 
 class NetworkHelper {
