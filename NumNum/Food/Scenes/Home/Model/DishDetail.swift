@@ -1,3 +1,4 @@
+
 //
 //  DishDetail.swift
 //  NumNum
@@ -15,7 +16,7 @@ struct DishDetail: Codable {
 }
 
 // MARK: - Datum
-struct Dish: Codable {
+struct Dish: Codable, DishesViewCellProtocol, DetailDishViewProtocol {
     
     let id, name, datumDescription: String?
     let image: String?
@@ -25,6 +26,52 @@ struct Dish: Codable {
         case id, name
         case datumDescription = "description"
         case image, calories
+    }
+    
+    //MARK: - DishesViewCellProtocol
+    
+    var dishesCellImage: String {
+        image ?? ""
+    }
+    
+    var dishesCellTitle: String {
+        name ?? ""
+    }
+    
+    var dishesCellCalorie: String {
+        if let calories = calories {
+            return "\(calories)"
+        }
+        return ""
+    }
+    
+    var dishesCellDescription: String {
+        datumDescription ?? ""
+        
+    }
+    
+    //MARK: - DetailDishViewProtocol
+    
+    var detailİmage: String {
+        image ?? ""
+    }
+    
+    var detailTitle: String {
+        name ?? ""
+        
+    }
+    
+    var detailCalorie: String {
+        if let calories = calories {
+            return "\(calories)"
+        }
+        return ""
+        
+    }
+    
+    var detailDescription: String {
+        datumDescription ?? ""
+        
     }
     
     

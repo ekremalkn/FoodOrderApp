@@ -9,10 +9,10 @@ import UIKit
 
 class HomeController: UIViewController {
     
-    @IBOutlet weak var topCollection: UICollectionView!
-    @IBOutlet weak var midCollection: UICollectionView!
-    @IBOutlet weak var bottomCollection: UICollectionView!
-    var homeViewModel = HomeViewModel()
+    @IBOutlet private weak var topCollection: UICollectionView!
+    @IBOutlet private weak var midCollection: UICollectionView!
+    @IBOutlet private weak var bottomCollection: UICollectionView!
+    private var homeViewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,6 @@ class HomeController: UIViewController {
             self?.midCollection.reloadData()
             self?.bottomCollection.reloadData()
         }
-        
         
     }
     
@@ -93,8 +92,31 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let catID =  homeViewModel.allCategories[indexPath.row].id ?? ""
-        homeViewModel.getCategoryDishes(catID: catID)
+        switch collectionView {
+        case topCollection:
+            let catID =  homeViewModel.allCategories[indexPath.row].id ?? ""
+            homeViewModel.getCategoryDishes(catID: catID)
+            homeViewModel.successCallback = { [ weak self ] in
+                let controller = self?.storyboard?.instantiateViewController(withIdentifier: "CategoryDishesController") as! CategoryDishesController
+                controller.configure(data: (self?.homeViewModel.categoryDishes)!)
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
+        case midCollection:
+            let controller = DetailController()
+            let bundle = Bundle(for: type(of: controller))
+            bundle.loadNibNamed("DetailController", owner: controller, options: nil)
+            self.navigationController?.show(controller, sender: nil)
+            controller.configure(data: homeViewModel.popularDishes[indexPath.row])
+        case bottomCollection:
+            let controller = DetailController()
+            let bundle = Bundle(for: type(of: controller))
+            bundle.loadNibNamed("DetailController", owner: controller, options: nil)
+            self.navigationController?.show(controller, sender: nil)
+            controller.configure(data: homeViewModel.speacialDishes[indexPath.row])
+        default:
+            return print("Did not show next VC")
+        }
+        
         
     }
     

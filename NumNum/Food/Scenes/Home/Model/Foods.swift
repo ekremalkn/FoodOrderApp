@@ -40,7 +40,9 @@ struct Category: Codable, CategoryViewCellProtocol {
 }
 
 // MARK: - Dish
-struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol {
+struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, DetailDishViewProtocol {
+    
+    
     let id, name, popularDescription: String?
     let image: String?
     let calories: Int?
@@ -96,6 +98,31 @@ struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol {
         return ""
         
     }
+    
+    //MARK: - DetailDishViewProtocol
+    
+    var detailİmage: String {
+        image ?? ""
+    }
+    
+    var detailTitle: String {
+        name ?? ""
+        
+    }
+    
+    var detailCalorie: String {
+        if let calories = calories {
+            return "\(calories)"
+        }
+        return ""
+        
+    }
+    
+    var detailDescription: String {
+        popularDescription ?? ""
+        
+    }
+    
     
     
 }

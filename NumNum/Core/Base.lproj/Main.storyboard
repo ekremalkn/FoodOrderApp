@@ -165,11 +165,11 @@
             </objects>
             <point key="canvasLocation" x="3132" y="-35"/>
         </scene>
-        <!--Item-->
+        <!--Ara-->
         <scene sceneID="2SR-bk-whC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6dX-zY-vvP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wyN-aO-Ic4"/>
+                    <tabBarItem key="tabBarItem" title="Ara" image="magnifyingglass" catalog="system" id="wyN-aO-Ic4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Hf-xj-H44">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -293,11 +293,52 @@
             </objects>
             <point key="canvasLocation" x="3101.5267175572517" y="-858.45070422535218"/>
         </scene>
-        <!--Item-->
+        <!--Category Dishes Controller-->
+        <scene sceneID="Ctj-1Q-OdM">
+            <objects>
+                <viewController storyboardIdentifier="CategoryDishesController" id="5gV-tT-Kdy" customClass="CategoryDishesController" customModule="NumNum" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qv1-3g-WUm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4jt-Tj-mUl">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="qa7-oc-MIa">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5gV-tT-Kdy" id="ViC-SU-2Yq"/>
+                                    <outlet property="delegate" destination="5gV-tT-Kdy" id="xGh-Vn-P8w"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rPJ-fu-BjG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rPJ-fu-BjG" firstAttribute="bottom" secondItem="4jt-Tj-mUl" secondAttribute="bottom" id="3ec-hB-Cht"/>
+                            <constraint firstItem="rPJ-fu-BjG" firstAttribute="trailing" secondItem="4jt-Tj-mUl" secondAttribute="trailing" id="b5y-zh-XU5"/>
+                            <constraint firstItem="4jt-Tj-mUl" firstAttribute="leading" secondItem="rPJ-fu-BjG" secondAttribute="leading" id="qDf-TZ-zKZ"/>
+                            <constraint firstItem="4jt-Tj-mUl" firstAttribute="top" secondItem="rPJ-fu-BjG" secondAttribute="top" id="unW-ir-rMF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collection" destination="4jt-Tj-mUl" id="9q2-3R-1bd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o2t-b0-xlB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3935" y="-858"/>
+        </scene>
+        <!--Menu-->
         <scene sceneID="JFn-Bn-Keb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ih0-CA-nJ3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Aed-NJ-qua"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="Menu" id="Aed-NJ-qua"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7ln-yE-d1U">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -331,11 +372,11 @@
             </objects>
             <point key="canvasLocation" x="3131" y="815"/>
         </scene>
-        <!--Item-->
+        <!--Sepet-->
         <scene sceneID="jRB-gI-SJ2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SwW-xb-e2G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CCA-tf-1Ss"/>
+                    <tabBarItem key="tabBarItem" title="Sepet" image="cart.fill" catalog="system" id="CCA-tf-1Ss"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pyr-eK-kBg">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -352,7 +393,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Menu" width="22" height="26"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
