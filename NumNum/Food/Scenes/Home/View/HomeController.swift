@@ -21,6 +21,13 @@ class HomeController: UIViewController {
         isSucceed()
     }
     
+    
+    @IBAction func profileBtnTapped(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
     //MARK: - CollectionCells Setup
     
     private func collectionSetup() {
