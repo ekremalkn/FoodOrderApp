@@ -123,7 +123,7 @@ struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, D
         
     }
     
-    
+
     
 }
 

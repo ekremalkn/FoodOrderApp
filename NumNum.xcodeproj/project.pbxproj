@@ -23,6 +23,7 @@
 		F05A77812948F9EF0035DC3D /* DishesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05A777F2948F9EF0035DC3D /* DishesViewCell.xib */; };
 		F05A7784294906430035DC3D /* SpecialDishesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05A7782294906430035DC3D /* SpecialDishesViewCell.swift */; };
 		F05A7785294906430035DC3D /* SpecialDishesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05A7783294906430035DC3D /* SpecialDishesViewCell.xib */; };
+		F05EEEDE294F79D100785366 /* FirebaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05EEEDD294F79D100785366 /* FirebaseDataModel.swift */; };
 		F05F1D85293A768A00595ACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F1D84293A768A00595ACE /* AppDelegate.swift */; };
 		F05F1D87293A768A00595ACE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F1D86293A768A00595ACE /* SceneDelegate.swift */; };
 		F05F1D8C293A768A00595ACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05F1D8A293A768A00595ACE /* Main.storyboard */; };
@@ -41,6 +42,8 @@
 		F0D53A6E294DE5E300182ED6 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D53A6D294DE5E300182ED6 /* LogInController.swift */; };
 		F0D53A70294DE63A00182ED6 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D53A6F294DE63A00182ED6 /* SignUpController.swift */; };
 		F0D53A72294DFEAC00182ED6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D53A71294DFEAC00182ED6 /* ProfileController.swift */; };
+		F0D53A75294E0C2F00182ED6 /* DuplicateFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D53A74294E0C2F00182ED6 /* DuplicateFuncs.swift */; };
+		F0D53A7B294E5A5000182ED6 /* BasketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D53A7A294E5A5000182ED6 /* BasketController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,7 @@
 		F05A777F2948F9EF0035DC3D /* DishesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishesViewCell.xib; sourceTree = "<group>"; };
 		F05A7782294906430035DC3D /* SpecialDishesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialDishesViewCell.swift; sourceTree = "<group>"; };
 		F05A7783294906430035DC3D /* SpecialDishesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialDishesViewCell.xib; sourceTree = "<group>"; };
+		F05EEEDD294F79D100785366 /* FirebaseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataModel.swift; sourceTree = "<group>"; };
 		F05F1D81293A768A00595ACE /* NumNum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumNum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05F1D84293A768A00595ACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05F1D86293A768A00595ACE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 		F0D53A6D294DE5E300182ED6 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		F0D53A6F294DE63A00182ED6 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		F0D53A71294DFEAC00182ED6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		F0D53A74294E0C2F00182ED6 /* DuplicateFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateFuncs.swift; sourceTree = "<group>"; };
+		F0D53A7A294E5A5000182ED6 /* BasketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,7 @@
 		F05F1D9E293A790000595ACE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F0D53A76294E5A0500182ED6 /* Basket */,
 				F0D53A6B294DDF7800182ED6 /* Login-Sign */,
 				F0033041294CEE3C006B0859 /* Detail */,
 				F003303B294CE850006B0859 /* CategoryDishes */,
@@ -379,6 +386,7 @@
 		F0D53A6B294DDF7800182ED6 /* Login-Sign */ = {
 			isa = PBXGroup;
 			children = (
+				F0D53A73294E0BA800182ED6 /* Helper */,
 				F0D53A6C294DDF9F00182ED6 /* View */,
 			);
 			path = "Login-Sign";
@@ -391,6 +399,47 @@
 				F0D53A6F294DE63A00182ED6 /* SignUpController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F0D53A73294E0BA800182ED6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F0D53A74294E0C2F00182ED6 /* DuplicateFuncs.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F0D53A76294E5A0500182ED6 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				F0D53A77294E5A0900182ED6 /* Model */,
+				F0D53A78294E5A0E00182ED6 /* View */,
+				F0D53A79294E5A1400182ED6 /* ViewModel */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		F0D53A77294E5A0900182ED6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F05EEEDD294F79D100785366 /* FirebaseDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F0D53A78294E5A0E00182ED6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F0D53A7A294E5A5000182ED6 /* BasketController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0D53A79294E5A1400182ED6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,11 +568,14 @@
 				F0943EDA293E6F7A004630CC /* HomeViewModel.swift in Sources */,
 				F05A77802948F9EF0035DC3D /* DishesViewCell.swift in Sources */,
 				F05A777D2948DDD90035DC3D /* DishDetail.swift in Sources */,
+				F0D53A7B294E5A5000182ED6 /* BasketController.swift in Sources */,
+				F05EEEDE294F79D100785366 /* FirebaseDataModel.swift in Sources */,
 				F0351918293D17EC00A5A97A /* HomeHelper.swift in Sources */,
 				F05F1D8F293A768A00595ACE /* NumNum.xcdatamodeld in Sources */,
 				F05F1DAF293A852000595ACE /* OnboardingSlide.swift in Sources */,
 				F05A7784294906430035DC3D /* SpecialDishesViewCell.swift in Sources */,
 				F0D53A6E294DE5E300182ED6 /* LogInController.swift in Sources */,
+				F0D53A75294E0C2F00182ED6 /* DuplicateFuncs.swift in Sources */,
 				F05F1DA2293A7A1B00595ACE /* OnboardingViewController.swift in Sources */,
 				F003303E294CE89D006B0859 /* CategoryDishesController.swift in Sources */,
 			);

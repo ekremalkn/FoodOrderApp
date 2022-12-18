@@ -19,13 +19,13 @@ class LogInController: UIViewController {
     }
     
     //MARK: - SignIn Method Firebase
-
+    
     @IBAction func logInBtnTapped(_ sender: Any) {
         if emailTextField.text != nil && passwordTextField.text != nil {
             
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { data, error in
                 if error != nil {
-                    self.alertMessage(title: "Hata!", message: "Email ya da şifre hatalı.")
+                    DuplicateFuncs.alertMessage(title: "Hata!", message: "Email ya da şifre hatalı.", vc: self)
                 } else {
                     let controller = self.storyboard?.instantiateViewController(withIdentifier: "HomeNC") as! UITabBarController
                     controller.modalPresentationStyle = .fullScreen
@@ -42,15 +42,7 @@ class LogInController: UIViewController {
         self.present(controller, animated: true)
     }
     
-    //MARK: - AlertFunc
-
-    private func alertMessage(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: UIAlertAction.Style.default, handler: nil)
-        alert.addAction(alertAction)
-        self.present(alert, animated: true)
-        
-    }
+    
     
     
 }

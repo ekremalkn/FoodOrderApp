@@ -12,6 +12,7 @@ class CategoryDishesController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
     private var dishArray = [Dish]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionSetup()
@@ -26,6 +27,8 @@ class CategoryDishesController: UIViewController {
     }
     
     
+    
+    
 }
 
 extension CategoryDishesController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -35,6 +38,7 @@ extension CategoryDishesController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "\(DishesViewCell.self)", for: indexPath) as! DishesViewCell
+        
         cell.configure(data: dishArray[indexPath.row])
         cell.layer.cornerRadius = 10
         return cell
@@ -45,6 +49,7 @@ extension CategoryDishesController: UICollectionViewDataSource, UICollectionView
         let bundle = Bundle(for: type(of: controller))
         bundle.loadNibNamed("DetailController", owner: controller, options: nil)
         self.navigationController?.show(controller, sender: nil)
+        controller.getDataForFireBaseCat(data: dishArray[indexPath.row] )
         controller.configure(data: dishArray[indexPath.row])
     }
     

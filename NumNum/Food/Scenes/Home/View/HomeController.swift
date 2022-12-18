@@ -21,6 +21,10 @@ class HomeController: UIViewController {
         isSucceed()
     }
     
+    @IBAction func basketBtnTapped(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "BasketController") as! BasketController
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     @IBAction func profileBtnTapped(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
@@ -113,12 +117,14 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
             let bundle = Bundle(for: type(of: controller))
             bundle.loadNibNamed("DetailController", owner: controller, options: nil)
             self.navigationController?.show(controller, sender: nil)
+            controller.getDataForFirebase(data: homeViewModel.popularDishes[indexPath.row])
             controller.configure(data: homeViewModel.popularDishes[indexPath.row])
         case bottomCollection:
             let controller = DetailController()
             let bundle = Bundle(for: type(of: controller))
             bundle.loadNibNamed("DetailController", owner: controller, options: nil)
             self.navigationController?.show(controller, sender: nil)
+            controller.getDataForFirebase(data: homeViewModel.speacialDishes[indexPath.row])
             controller.configure(data: homeViewModel.speacialDishes[indexPath.row])
         default:
             return print("Did not show next VC")

@@ -9,16 +9,16 @@ import UIKit
 import Firebase
 
 class ProfileController: UIViewController {
-
+    
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         table.separatorStyle = .singleLine
     }
     
-
-
-
+    
+    
+    
 }
 
 extension ProfileController: UITableViewDelegate, UITableViewDataSource {
@@ -40,7 +40,7 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
         } catch {
             
         }
-       
+        
     }
     
     
