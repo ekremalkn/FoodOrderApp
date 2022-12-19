@@ -12,6 +12,7 @@ class SignUpController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    let database = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class SignUpController: UIViewController {
     
     @IBAction func signUpBtnTapped(_ sender: Any) {
         if emailTextField.text != nil {
+            
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { data, error in
                 
                 if error != nil {
@@ -37,7 +39,7 @@ class SignUpController: UIViewController {
         
     }
     
-   
+    
     
     
 }

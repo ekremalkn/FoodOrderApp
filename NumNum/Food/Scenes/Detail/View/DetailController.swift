@@ -39,6 +39,7 @@ class DetailController: UIViewController {
     
     @IBAction func addBtnTapped(_ sender: Any) {
         let currentUser = Auth.auth().currentUser
+        
         if currentUser == nil {
             DuplicateFuncs.alertMessage(title: "Giriş yapmadınız!", message: "Sepete eklemeden önce giriş yapınız.", vc: self)
         } else {
@@ -50,7 +51,7 @@ class DetailController: UIViewController {
                     "image": items?.image ?? "",
                     "calories": items?.calories ?? ""
                 ]
-                database.childByAutoId().setValue(object)
+                database.child("Users").child(currentUser!.uid).childByAutoId().setValue(object)
             } else if itemsCat != nil {
                 let object: [String : Any] = [
                     "id": itemsCat?.id ?? "",
@@ -59,7 +60,7 @@ class DetailController: UIViewController {
                     "image": itemsCat?.image ?? "",
                     "calories": itemsCat?.calories ?? ""
                 ]
-                database.childByAutoId().setValue(object)
+                database.child("Users").child(currentUser!.uid).childByAutoId().setValue(object)
                 
             }
             

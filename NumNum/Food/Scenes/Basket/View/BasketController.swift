@@ -35,7 +35,7 @@ class BasketController: UIViewController {
     private func isSucceed() {
         successCallback = { [ weak self ] in
             self?.collection.reloadData()
-           
+            
             
             
         }
@@ -43,15 +43,16 @@ class BasketController: UIViewController {
     
     
     private func getDataFromFirebase() {
-        database.observe(.value) { (snapshot: DataSnapshot?) in
+        let uid = Auth.auth().currentUser?.uid
+        
+        database.child("Users").child(uid!).observeSingleEvent(of: .value) { (snapshot: DataSnapshot?) in
             if let data = snapshot?.children.allObjects as? [DataSnapshot] {
-                
                 self.dishes.removeAll()
                 
                 for snap in data {
                     
                     if let postDic = snap.value as? Dictionary<String, Any> {
-                   
+                        
                         let name = postDic["name"]!
                         let image = postDic["image"]!
                         let description = postDic["popularDescription"]!
@@ -61,16 +62,20 @@ class BasketController: UIViewController {
                     
                 }
                 
-                
+                self.successCallback?()
             }
-            self.successCallback?()
         }
+        
+        
+        
         
     }
     
-    
-    
 }
+
+
+
+
 
 extension BasketController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
