@@ -14,8 +14,8 @@ class HomeViewModel {
     
     
     var allCategories = [Category]()
-    var popularDishes = [Dishes]()
-    var speacialDishes = [Dishes]()
+    var popularDishes = [Dish]()
+    var speacialDishes = [Dish]()
     var categoryDishes = [Dish]()
     var errorCallback: ((String)->())?
     var successCallback: (()->())?

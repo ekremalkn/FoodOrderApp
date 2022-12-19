@@ -29,8 +29,7 @@ class DetailController: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var calorieLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    var items: Dishes?
-    var itemsCat: Dish?
+    var items: Dish?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,26 +43,23 @@ class DetailController: UIViewController {
             DuplicateFuncs.alertMessage(title: "Giriş yapmadınız!", message: "Sepete eklemeden önce giriş yapınız.", vc: self)
         } else {
             if items != nil {
+                var description: String?
+                
+                if items?.popularDescription != nil {
+                    description = items?.popularDescription
+                } else if items?.datumDescription != nil {
+                    description = items?.datumDescription
+                }
+                
                 let object: [String : Any] = [
                     "id": items?.id ?? "",
                     "name": items?.name ?? "",
-                    "popularDescription": items?.popularDescription ?? "",
+                    "description": description ?? "",
                     "image": items?.image ?? "",
                     "calories": items?.calories ?? ""
                 ]
                 database.child("Users").child(currentUser!.uid).childByAutoId().setValue(object)
-            } else if itemsCat != nil {
-                let object: [String : Any] = [
-                    "id": itemsCat?.id ?? "",
-                    "name": itemsCat?.name ?? "",
-                    "popularDescription": itemsCat?.datumDescription ?? "",
-                    "image": itemsCat?.image ?? "",
-                    "calories": itemsCat?.calories ?? ""
-                ]
-                database.child("Users").child(currentUser!.uid).childByAutoId().setValue(object)
-                
             }
-            
             
             
         }
@@ -72,14 +68,9 @@ class DetailController: UIViewController {
         
     }
     
-    func getDataForFirebase(data: Dishes) {
+    func getDataForFirebase(data: Dish) {
         items = data
     }
-    
-    func getDataForFireBaseCat(data: Dish) {
-        itemsCat = data
-    }
-    
     
     func configure(data: DetailDishViewProtocol) {
         image.sd_setImage(with: URL(string: data.detailİmage))

@@ -55,7 +55,7 @@ class BasketController: UIViewController {
                         
                         let name = postDic["name"]!
                         let image = postDic["image"]!
-                        let description = postDic["popularDescription"]!
+                        let description = postDic["description"]!
                         let calories = "\(postDic["calories"]!)"
                         self.dishes.append(FirebaseDataModel(name: name as? String, image: image as? String, calories: calories, description: description as? String))
                     }

@@ -10,12 +10,12 @@ import Alamofire
 
 protocol HomeManagerProtocol {
     func getCategoryFoods(type: HomeEndpoint, onSuccess: @escaping(Foods?) -> (), onError: @escaping(AFError) -> ())
-    func getDetailDishes(type: HomeEndpoint, onSuccess: @escaping(DishDetail?) -> (), onError: @escaping(AFError) -> ())
+    func getDetailDishes(type: HomeEndpoint, onSuccess: @escaping(Dishes?) -> (), onError: @escaping(AFError) -> ())
     
 }
 
 class HomeManager: HomeManagerProtocol {
-    func getDetailDishes(type: HomeEndpoint, onSuccess: @escaping (DishDetail?) -> (), onError: @escaping (Alamofire.AFError) -> ()) {
+    func getDetailDishes(type: HomeEndpoint, onSuccess: @escaping (Dishes?) -> (), onError: @escaping (Alamofire.AFError) -> ()) {
         var url = ""
         
         switch type {
@@ -31,7 +31,7 @@ class HomeManager: HomeManagerProtocol {
             url = HomeEndpoint.fetchOrders.path
         }
         
-        NetworkManager.shared.request(path: url) { (response: DishDetail) in
+        NetworkManager.shared.request(path: url) { (response: Dishes) in
             onSuccess(response)
             
         } onError: { error in

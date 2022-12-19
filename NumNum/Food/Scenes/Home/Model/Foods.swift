@@ -16,10 +16,18 @@ struct Foods: Codable {
     
 }
 
+struct Dishes: Codable {
+    let status: Int?
+    let message: String?
+    let data: [Dish]?
+    
+    
+}
+
 // MARK: - DataClass
 struct DataClass: Codable {
     let categories: [Category]?
-    let populars, specials: [Dishes]?
+    let populars, specials: [Dish]?
 }
 
 // MARK: - Category
@@ -40,16 +48,16 @@ struct Category: Codable, CategoryViewCellProtocol {
 }
 
 // MARK: - Dish
-struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, DetailDishViewProtocol {
+struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, DetailDishViewProtocol {
     
     
-    let id, name, popularDescription: String?
+    let id, name, popularDescription, datumDescription: String?
     let image: String?
     let calories: Int?
     
     enum CodingKeys: String, CodingKey {
         case id, name
-        case popularDescription = "description"
+        case popularDescription, datumDescription = "description"
         case image, calories
     }
     
@@ -71,7 +79,13 @@ struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, D
     }
     
     var dishesCellDescription: String {
-        popularDescription ?? ""
+        if popularDescription != nil {
+            return popularDescription ?? ""
+        } else if datumDescription != nil {
+            return datumDescription ?? ""
+        }
+        return ""
+        
         
     }
     
@@ -87,7 +101,13 @@ struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, D
     }
     
     var specialDescription: String {
-        popularDescription ?? ""
+        if popularDescription != nil {
+            return popularDescription ?? ""
+        } else if datumDescription != nil {
+            return datumDescription ?? ""
+        }
+        return ""
+        
         
     }
     
@@ -119,11 +139,17 @@ struct Dishes: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, D
     }
     
     var detailDescription: String {
-        popularDescription ?? ""
+        if popularDescription != nil {
+            return popularDescription ?? ""
+        } else if datumDescription != nil {
+            return datumDescription ?? ""
+        }
+        return ""
+        
         
     }
     
-
+    
     
 }
 

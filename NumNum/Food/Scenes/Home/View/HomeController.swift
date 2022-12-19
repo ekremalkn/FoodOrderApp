@@ -24,6 +24,14 @@ class HomeController: UIViewController {
     @IBAction func basketBtnTapped(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "BasketController") as! BasketController
         navigationController?.pushViewController(controller, animated: true)
+        
+        /*
+         let controller = BasketController()
+         let bundle = Bundle(for: type(of: controller))
+         bundle.loadNibNamed("BasketController", owner: controller, options: nil)
+         self.navigationController?.pushViewController(controller, animated: true)
+         */
+        
     }
     
     @IBAction func profileBtnTapped(_ sender: Any) {

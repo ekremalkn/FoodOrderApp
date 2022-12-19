@@ -11,8 +11,7 @@ class CategoryDishesController: UIViewController {
     
     @IBOutlet private weak var collection: UICollectionView!
     private var dishArray = [Dish]()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionSetup()
@@ -49,7 +48,7 @@ extension CategoryDishesController: UICollectionViewDataSource, UICollectionView
         let bundle = Bundle(for: type(of: controller))
         bundle.loadNibNamed("DetailController", owner: controller, options: nil)
         self.navigationController?.show(controller, sender: nil)
-        controller.getDataForFireBaseCat(data: dishArray[indexPath.row] )
+        controller.getDataForFirebase(data: dishArray[indexPath.row] )
         controller.configure(data: dishArray[indexPath.row])
     }
     
