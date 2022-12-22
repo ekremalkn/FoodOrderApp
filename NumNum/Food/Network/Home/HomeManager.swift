@@ -22,13 +22,8 @@ class HomeManager: HomeManagerProtocol {
             
         case .fetchAllCategories:
             url = HomeEndpoint.fetchAllCategories.path
-        case .placeOrder(let dishID):
-            url = HomeEndpoint.placeOrder(dishID).path
         case .fetchCategoryDishes(let catID):
             url = HomeEndpoint.fetchCategoryDishes(catID).path
-            
-        case .fetchOrders:
-            url = HomeEndpoint.fetchOrders.path
         }
         
         NetworkManager.shared.request(path: url) { (response: Dishes) in
@@ -48,13 +43,8 @@ class HomeManager: HomeManagerProtocol {
             
         case .fetchAllCategories:
             url = HomeEndpoint.fetchAllCategories.path
-        case .placeOrder(let dishID):
-            url = HomeEndpoint.placeOrder(dishID).path
         case .fetchCategoryDishes(let catID):
             url = HomeEndpoint.fetchCategoryDishes(catID).path
-            
-        case .fetchOrders:
-            url = HomeEndpoint.fetchOrders.path
         }
         
         NetworkManager.shared.request(path: url) { (response: Foods) in

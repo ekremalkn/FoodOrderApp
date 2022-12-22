@@ -13,4 +13,5 @@ struct FirebaseDataModel {
     let image: String?
     let calories: String?
     let description: String?
+    let quantity: String?
 }

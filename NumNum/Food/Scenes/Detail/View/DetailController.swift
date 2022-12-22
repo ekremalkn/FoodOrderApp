@@ -22,22 +22,58 @@ protocol DetailDishViewProtocol {
 class DetailController: UIViewController {
     
     private let database = Database.database().reference()
+    private let currentUser = Auth.auth().currentUser
     
     
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var stepper: UIStepper!
     
+    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var calorieLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    
     var items: Dish?
+    var isSelected: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            }
+    
+    @IBAction func quantityItem(_ sender: UIStepper) {
+        quantityLabel.text = String(Int(sender.value + 1))
+        if quantityLabel.text == String(0) {
+            quantityLabel.isHidden = true
+        } else if Int(sender.value) > 9 {
+            quantityLabel.text = String(10)
+            DuplicateFuncs.alertMessage(title: "Bir üründen maksimum 10 adet sipariş verebilrisiniz.", message: "", vc: self)
+        }
+        createUsersData()
+        
+    }
+    @IBAction func addBtnTapped(_ sender: UIButton) {
+        configureAddBtn()
+    }
+    
+    private func configureAddBtn() {
+        if isSelected {
+            isSelected = false
+            addBtn.setImage(UIImage(named: "Added"), for: .normal)
+            createUsersData()
+            DuplicateFuncs.alertMessage(title: "Ürün sepete eklendi.", message: "", vc: self)
+            
+        } else {
+            isSelected = true
+            addBtn.setImage(UIImage(named: "Add"), for: .normal)
+            database.child("Users").child(currentUser!.uid).child("\(items?.name)").removeValue()
+            DuplicateFuncs.alertMessage(title: "Urün sepetten kaldırıldı.", message: "", vc: self)
+        }
         
     }
     
-    @IBAction func addBtnTapped(_ sender: Any) {
-        let currentUser = Auth.auth().currentUser
+    private func createUsersData() {
+        
         
         if currentUser == nil {
             DuplicateFuncs.alertMessage(title: "Giriş yapmadınız!", message: "Sepete eklemeden önce giriş yapınız.", vc: self)
@@ -52,20 +88,18 @@ class DetailController: UIViewController {
                 }
                 
                 let object: [String : Any] = [
+                    "quantity": quantityLabel.text ?? "",
                     "id": items?.id ?? "",
                     "name": items?.name ?? "",
                     "description": description ?? "",
                     "image": items?.image ?? "",
                     "calories": items?.calories ?? ""
                 ]
-                database.child("Users").child(currentUser!.uid).childByAutoId().setValue(object)
+                database.child("Users").child(currentUser!.uid).child("\(items?.name)").setValue(object)
             }
             
             
         }
-        
-        
-        
     }
     
     func getDataForFirebase(data: Dish) {

@@ -16,10 +16,11 @@ protocol SpecialDishesViewCellProtocol {
 
 class SpecialDishesViewCell: UICollectionViewCell {
     
-    @IBOutlet  weak var image: UIImageView!
-    @IBOutlet  weak var titleLabel: UILabel!
-    @IBOutlet  weak var descriptionLabel: UILabel!
-    @IBOutlet  weak var calorieLabel: UILabel!
+    @IBOutlet  private weak var image: UIImageView!
+    @IBOutlet  private weak var titleLabel: UILabel!
+    @IBOutlet  private weak var descriptionLabel: UILabel!
+    @IBOutlet  private weak var calorieLabel: UILabel!
+    
     
 
     func configure(data: SpecialDishesViewCellProtocol) {

@@ -119,6 +119,7 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         
     }
     
+    
     //MARK: - DetailDishViewProtocol
     
     var detailİmage: String {
