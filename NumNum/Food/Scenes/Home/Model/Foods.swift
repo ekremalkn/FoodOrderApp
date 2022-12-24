@@ -48,9 +48,8 @@ struct Category: Codable, CategoryViewCellProtocol {
 }
 
 // MARK: - Dish
-struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, DetailDishViewProtocol {
-    
-    
+struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, DetailDishViewProtocol, CategoryDishesCellProtocol, SearchViewCellProtocol {
+
     let id, name, popularDescription, datumDescription: String?
     let image: String?
     let calories: Int?
@@ -78,17 +77,6 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         return ""
     }
     
-    var dishesCellDescription: String {
-        if popularDescription != nil {
-            return popularDescription ?? ""
-        } else if datumDescription != nil {
-            return datumDescription ?? ""
-        }
-        return ""
-        
-        
-    }
-    
     //MARK: -  SpecialDishesViewCellProtocol
     
     var specialImage: String {
@@ -100,16 +88,6 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         
     }
     
-    var specialDescription: String {
-        if popularDescription != nil {
-            return popularDescription ?? ""
-        } else if datumDescription != nil {
-            return datumDescription ?? ""
-        }
-        return ""
-        
-        
-    }
     
     var specialCalorie: String {
         if let calories = calories {
@@ -149,6 +127,43 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         
         
     }
+    
+    //MARK: - CategoryDishesCellProtocol
+    
+    var categoryDishesImage: String {
+        image ?? ""
+    }
+    
+    var categoryTitleLabel: String {
+        name ?? ""
+    }
+    
+    var categoryCalorieLabel: String {
+        if let calories = calories {
+            return "\(calories)"
+        }
+        return ""
+    }
+    
+    //MARK: - SearchViewCellProtocol
+    
+    var searchCellImage: String {
+        image ?? ""
+    }
+    
+    var searchTitleLabel: String {
+        name ?? ""
+    }
+    
+    var searchCalorieLabel: String {
+        if let calories = calories {
+            return "\(calories)" 
+        }
+        return ""
+    }
+    
+
+
     
     
     

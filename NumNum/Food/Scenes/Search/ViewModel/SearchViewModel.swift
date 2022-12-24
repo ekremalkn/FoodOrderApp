@@ -35,7 +35,6 @@ class SearchViewModel {
         
     }
     
-    
     //MARK: - Getting Dishes for Search scene
     
     func getSearchDishes(catID: String) {
@@ -47,7 +46,7 @@ class SearchViewModel {
         } onError: { error in
             print("Error while getting dishes for Search scene. ")
         }
-
+        
     }
-
+    
 }

@@ -47,11 +47,14 @@ class SearchController: UIViewController {
         }
     }
     
-    
+    //MARK: - Register UINib's
+
     private func collectionSetup() {
-        topCollection.register(UINib(nibName: "\(SpecialDishesViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SpecialDishesViewCell.self)")
+        topCollection.register(UINib(nibName: "\(SearchViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SearchViewCell.self)")
     }
     
+    //MARK: - ViewModelConfiguration
+
     private func getData() {
         searchViewModel.getSearchCategory()
         searchViewModel.getSearchDishes(catID: "cat1")
@@ -66,7 +69,10 @@ class SearchController: UIViewController {
     
 }
 
+//MARK: - SearchBar Methods
+
 extension SearchController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
             searchViewModel.searchDishes = segmentedDishes
@@ -76,30 +82,32 @@ extension SearchController: UISearchBarDelegate {
                 Dish.name!.lowercased().contains(searchText.lowercased())
             }
             topCollection.reloadData()
-        }
-        
-        
-        
-        
-        
-            
-            
-        
-            
-        
+        }       
     }
 }
 
 
+//MARK: - CollectionViewMethods
+
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return searchViewModel.searchDishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = topCollection.dequeueReusableCell(withReuseIdentifier: "\(SpecialDishesViewCell.self)", for: indexPath) as! SpecialDishesViewCell
+        let cell = topCollection.dequeueReusableCell(withReuseIdentifier: "\(SearchViewCell.self)", for: indexPath) as! SearchViewCell
         cell.configure(data: searchViewModel.searchDishes[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = DetailController()
+        let bundle = Bundle(for: type(of: controller))
+        bundle.loadNibNamed("DetailController", owner: controller, options: nil)
+        self.navigationController?.show(controller, sender: nil)
+        controller.getDataForFirebase(data: searchViewModel.searchDishes[indexPath.row] )
+        controller.configure(data: searchViewModel.searchDishes[indexPath.row])
     }
     
     

@@ -37,7 +37,7 @@ class HomeViewModel {
     }
     
     //MARK: - Getting PopularDishes
-
+    
     func getPopularDishes() {
         manager.getCategoryFoods(type: .fetchAllCategories) { foods in
             if let foods = foods {
@@ -51,7 +51,7 @@ class HomeViewModel {
     }
     
     //MARK: -  Getting SpecialDishes
-
+    
     func getSpecialDishes() {
         manager.getCategoryFoods(type: .fetchAllCategories) { foods in
             if let foods = foods {
@@ -65,7 +65,7 @@ class HomeViewModel {
     }
     
     //MARK: - Getting CategoryDishes
- 
+    
     func getCategoryDishes(catID: String) {
         manager.getDetailDishes(type: .fetchCategoryDishes(catID)) { foods in
             if let foods = foods {

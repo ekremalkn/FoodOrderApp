@@ -4,6 +4,7 @@
 target 'NumNum' do
 
  pod 'Alamofire'
+ pod 'PanModal'
  
 
 

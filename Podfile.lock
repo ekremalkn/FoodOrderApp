@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.6.4)
+  - PanModal (1.2.7)
 
 DEPENDENCIES:
   - Alamofire
+  - PanModal
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - PanModal
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
 
-PODFILE CHECKSUM: 889a1240638183af5a6aca3108b360cbc8249bcc
+PODFILE CHECKSUM: ac3e19f974b89668224ffb59f70977e56a668162
 
 COCOAPODS: 1.11.3

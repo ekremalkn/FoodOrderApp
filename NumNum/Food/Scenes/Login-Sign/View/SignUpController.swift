@@ -12,6 +12,7 @@ class SignUpController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
     let database = Database.database().reference()
     
     override func viewDidLoad() {

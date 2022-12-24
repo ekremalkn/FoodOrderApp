@@ -6,88 +6,93 @@
 //
 
 import UIKit
-import Firebase
-import SDWebImage
+import PanModal
 
 class BasketController: UIViewController {
     
-    @IBOutlet private weak var collection: UICollectionView!
+    @IBOutlet  weak var collection: UICollectionView!
+    @IBOutlet weak var cartTotalLabel: UILabel!
     
-    let database = Database.database().reference()
-    var dishes = [FirebaseDataModel]()
+    var basketViewModel = BasketViewModel()
     
-    var errorCallback: ((String)->())?
-    var successCallback: (()->())?
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionSetup()
+        basketViewModel.getDataFromFirebase()
+        isSucceed()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionSetup()
-        getDataFromFirebase()
-        isSucceed()
-        
         
     }
     
+    @IBAction func checkoutBtnTapped(_ sender: UIButton) {
+        
+    }
     
+    //MARK: - Register UINib's
+
     private func collectionSetup() {
-        collection.register(UINib(nibName: "\(SpecialDishesViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SpecialDishesViewCell.self)")
+        collection.register(UINib(nibName: "\(BasketViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(BasketViewCell.self)")
     }
+    
+    //MARK: - ViewModelConfiguration
+
     private func isSucceed() {
-        successCallback = { [ weak self ] in
+        self.basketViewModel.successCallback = { [ weak self ] in
             self?.collection.reloadData()
-            
-            
-            
         }
-    }
-    
-    
-    private func getDataFromFirebase() {
-        let uid = Auth.auth().currentUser?.uid
-        
-        database.child("Users").child(uid!).observeSingleEvent(of: .value) { (snapshot: DataSnapshot?) in
-            if let data = snapshot?.children.allObjects as? [DataSnapshot] {
-                self.dishes.removeAll()
-                
-                for snap in data {
-                    
-                    if let postDic = snap.value as? Dictionary<String, Any> {
-                        
-                        let name = postDic["name"]!
-                        let image = postDic["image"]!
-                        let description = postDic["description"]!
-                        let calories = "\(postDic["calories"]!)"
-                        let quantity = postDic["quantity"]
-                        self.dishes.append(FirebaseDataModel(name: name as? String, image: image as? String, calories: calories, description: description as? String, quantity: quantity as! String))
-                    }
-                    
-                }
-                
-                self.successCallback?()
-            }
-        }
-        
-        
-        
-        
+       
     }
     
 }
 
-
-
-
+//MARK: - CollectionViewMethods
 
 extension BasketController: UICollectionViewDataSource, UICollectionViewDelegate {
+   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dishes.count
+        return basketViewModel.dishes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collection.dequeueReusableCell(withReuseIdentifier: "\(SpecialDishesViewCell.self)", for: indexPath) as! SpecialDishesViewCell
-        cell.configureFirebaseData(data: dishes[indexPath.row])
+        let cell = collection.dequeueReusableCell(withReuseIdentifier: "\(BasketViewCell.self)", for: indexPath) as! BasketViewCell
+        cell.getDataFromFirebase(data: basketViewModel.dishes[indexPath.row])
+        cell.configure(data: basketViewModel.dishes[indexPath.row])
+        cell.delegate = self
         return cell
         
+    }
+
+
+}
+
+//MARK: - BasketViewCellSubclassDelegate
+
+extension BasketController: BasketViewCellSubclassDelegate {
+    func stepperValuDidChange(cell: BasketViewCell) {
+        guard let indexPath = self.collection.indexPath(for: cell) else {
+            return
+        }
+        basketViewModel.dishes.remove(at: indexPath.row)
+        collection.deleteItems(at: [indexPath])
+    }
+}
+
+//MARK: - BasketController Presentation Style
+
+extension BasketController: PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+    
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(530)
+    }
+    
+    var longFormHeight: PanModalHeight {
+        return .maxHeightWithTopInset(300)
     }
     
     

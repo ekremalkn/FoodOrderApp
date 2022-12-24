@@ -16,9 +16,6 @@ class ProfileController: UIViewController {
         table.separatorStyle = .singleLine
     }
     
-    
-    
-    
 }
 
 extension ProfileController: UITableViewDelegate, UITableViewDataSource {

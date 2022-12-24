@@ -13,9 +13,8 @@ class HomeController: UIViewController {
     @IBOutlet private weak var midCollection: UICollectionView!
     @IBOutlet private weak var bottomCollection: UICollectionView!
     private var homeViewModel = HomeViewModel()
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()
         collectionSetup()
         getData()
         isSucceed()
@@ -24,13 +23,6 @@ class HomeController: UIViewController {
     @IBAction func basketBtnTapped(_ sender: Any) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "BasketController") as! BasketController
         navigationController?.pushViewController(controller, animated: true)
-        
-        /*
-         let controller = BasketController()
-         let bundle = Bundle(for: type(of: controller))
-         bundle.loadNibNamed("BasketController", owner: controller, options: nil)
-         self.navigationController?.pushViewController(controller, animated: true)
-         */
         
     }
     
@@ -69,7 +61,7 @@ class HomeController: UIViewController {
     
 }
 
-//MARK: - CollectionView Methods
+//MARK: - CollectionViewMethods
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -117,6 +109,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
             homeViewModel.getCategoryDishes(catID: catID)
             homeViewModel.successCallback = { [ weak self ] in
                 let controller = self?.storyboard?.instantiateViewController(withIdentifier: "CategoryDishesController") as! CategoryDishesController
+                controller.categoryName = self?.homeViewModel.allCategories[indexPath.row].title
                 controller.configure(data: (self?.homeViewModel.categoryDishes)!)
                 self?.navigationController?.pushViewController(controller, animated: true)
             }

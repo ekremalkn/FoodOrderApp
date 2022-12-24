@@ -11,6 +11,7 @@ class CategoryDishesController: UIViewController {
     
     @IBOutlet private weak var collection: UICollectionView!
     private var dishArray = [Dish]()
+    var categoryName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,26 +19,26 @@ class CategoryDishesController: UIViewController {
     }
     
     private func collectionSetup() {
-        collection.register(UINib(nibName: "\(DishesViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(DishesViewCell.self)")
+        collection.register(UINib(nibName: "\(CategoryDishesCell.self)", bundle: nil), forCellWithReuseIdentifier:"\(CategoryDishesCell.self)")
     }
     
     func configure(data: [Dish]) {
         dishArray = data
     }
-    
-    
-    
-    
+  
 }
 
+//MARK: - CollectionViewMethods
+
 extension CategoryDishesController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dishArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collection.dequeueReusableCell(withReuseIdentifier: "\(DishesViewCell.self)", for: indexPath) as! DishesViewCell
-        
+        let cell = collection.dequeueReusableCell(withReuseIdentifier: "\(CategoryDishesCell.self)", for: indexPath) as! CategoryDishesCell
+        cell.categoryName.text = categoryName
         cell.configure(data: dishArray[indexPath.row])
         cell.layer.cornerRadius = 10
         return cell

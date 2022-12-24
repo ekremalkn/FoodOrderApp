@@ -10,23 +10,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryViewCell" customModule="NumNum" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-w3-AG6">
-                        <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="130"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="104" id="ZWI-YO-NjR"/>
-                            <constraint firstAttribute="height" constant="104" id="s14-cD-zSx"/>
+                            <constraint firstAttribute="width" constant="150" id="7gT-vP-6mg"/>
+                            <constraint firstAttribute="height" constant="130" id="cdD-bl-xtu"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMg-mK-cGq">
-                        <rect key="frame" x="4" y="84" width="96" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMg-mK-cGq">
+                        <rect key="frame" x="8" y="132" width="142" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -35,10 +34,14 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="PZE-w3-AG6" secondAttribute="bottom" id="DEE-pJ-Bms"/>
-                <constraint firstItem="PZE-w3-AG6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DUS-if-Hl3"/>
-                <constraint firstItem="PZE-w3-AG6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Sc4-Z0-Yhf"/>
-                <constraint firstAttribute="trailing" secondItem="PZE-w3-AG6" secondAttribute="trailing" id="a62-fM-1oQ"/>
+                <constraint firstAttribute="bottom" secondItem="WMg-mK-cGq" secondAttribute="bottom" id="7Ok-dq-hZb"/>
+                <constraint firstItem="WMg-mK-cGq" firstAttribute="top" secondItem="PZE-w3-AG6" secondAttribute="bottom" constant="2" id="KzM-5l-GJd"/>
+                <constraint firstItem="PZE-w3-AG6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mv2-zg-Frn"/>
+                <constraint firstAttribute="trailing" secondItem="PZE-w3-AG6" secondAttribute="trailing" id="Ndm-x9-Ir2"/>
+                <constraint firstItem="WMg-mK-cGq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Opc-T2-uAg"/>
+                <constraint firstItem="PZE-w3-AG6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TgZ-fP-vrK"/>
+                <constraint firstAttribute="bottom" secondItem="PZE-w3-AG6" secondAttribute="bottom" constant="20" id="W7X-3u-Xs2"/>
+                <constraint firstAttribute="trailing" secondItem="WMg-mK-cGq" secondAttribute="trailing" id="Z75-DU-qs0"/>
             </constraints>
             <connections>
                 <outlet property="image" destination="PZE-w3-AG6" id="lsw-X6-E7q"/>
