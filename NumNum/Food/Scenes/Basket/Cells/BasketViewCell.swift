@@ -25,21 +25,21 @@ protocol BasketViewCellSubclassDelegate: AnyObject {
 class BasketViewCell: UICollectionViewCell {
     
     
-    var dataFirebase: FirebaseDataModel?
+    private var dataFirebase: FirebaseDataModel?
     
-    var database = Database.database().reference()
-    var currentUser = Auth.auth().currentUser
+    private var database = Database.database().reference()
+    private var currentUser = Auth.auth().currentUser
     
     weak var delegate: BasketViewCellSubclassDelegate?
     
-    var stepperValueChanged: Bool = true
+    private var stepperValueChanged: Bool = true
     
     @IBOutlet private weak var stepper: UIStepper!
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var quantityLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var calorieLabel: UILabel!
     
     
     override func prepareForReuse() {
@@ -56,7 +56,7 @@ class BasketViewCell: UICollectionViewCell {
         case 0:
             database.child("Users").child(currentUser?.uid ?? "").child(dataFirebase?.name ?? "").removeValue()
         case 0...10:
-            database.child("Users").child(currentUser?.uid ?? "").child(dataFirebase?.name ?? "").updateChildValues(["quantity" : quantityLabel.text!])
+            database.child("Users").child(currentUser?.uid ?? "").child(dataFirebase?.name ?? "").updateChildValues(["quantity" : quantityLabel.text ?? ""])
         case 11..<11111:
             stepper.value = 10
             self.quantityLabel.text = String(Int(stepper.value))

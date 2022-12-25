@@ -23,10 +23,10 @@ class SearchViewCell: UICollectionViewCell {
     
     var items: Dish?
     
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var calorieLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var image: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var calorieLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     func configure(data: SearchViewCellProtocol) {
         image.sd_setImage(with: URL(string: data.searchCellImage))

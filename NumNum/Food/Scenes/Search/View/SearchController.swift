@@ -14,8 +14,8 @@ class SearchController: UIViewController {
     
     private var searchViewModel = SearchViewModel()
     
-    var segmentedDishes = [Dish]()
-    var allCategoryDishes = [Dish]()
+    private var segmentedDishes = [Dish]()
+    private var allCategoryDishes = [Dish]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +36,19 @@ class SearchController: UIViewController {
     @IBAction func didChangeCategory(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id!)
+            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id ?? "")
             isSucceed()
         case 1:
-            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id!)
+            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id ?? "")
             isSucceed()
         case 2:
-            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id!)
+            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id ?? "")
             isSucceed()
         case 3:
-            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id!)
+            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id ?? "")
             isSucceed()
         case 4:
-            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id!)
+            searchViewModel.getSearchDishes(catID: searchViewModel.searchCategories[sender.selectedSegmentIndex].id ?? "")
             isSucceed()
         default:
             return

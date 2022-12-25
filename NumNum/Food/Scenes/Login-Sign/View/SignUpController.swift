@@ -10,9 +10,9 @@ import Firebase
 
 class SignUpController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signUpButton: UIButton!
     
     let database = Database.database().reference()
     
@@ -43,7 +43,7 @@ class SignUpController: UIViewController {
     
     //MARK: - ConfigureUI elements
 
-    func configureUI() {
+    private func configureUI() {
         signUpButton.layer.cornerRadius = 15
         emailTextField.layer.cornerRadius = 10
         passwordTextField.layer.cornerRadius = 10

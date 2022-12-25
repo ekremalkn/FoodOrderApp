@@ -10,11 +10,11 @@ import Firebase
 
 class LogInController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet private weak var logInButton: UIButton!
+    @IBOutlet private weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class LogInController: UIViewController {
     
     //MARK: - ConfigureUI elements
 
-    func configureUI() {
+    private func configureUI() {
         logInButton.layer.cornerRadius = 15
         signUpButton.layer.cornerRadius = 15
         emailTextField.layer.cornerRadius = 10

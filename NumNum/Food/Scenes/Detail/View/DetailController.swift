@@ -24,10 +24,10 @@ class DetailController: UIViewController {
     private let database = Database.database().reference()
     private let currentUser = Auth.auth().currentUser
     
-    @IBOutlet weak var addBtn: UIButton!
-    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet private weak var addBtn: UIButton!
+    @IBOutlet private weak var stepper: UIStepper!
     
-    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet private weak var quantityLabel: UILabel!
     
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!

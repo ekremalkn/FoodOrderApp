@@ -10,16 +10,16 @@ import PanModal
 
 class BasketController: UIViewController {
     
-    @IBOutlet  weak var collection: UICollectionView!
-    @IBOutlet weak var cartTotalLabel: UILabel!
+    @IBOutlet private weak var collection: UICollectionView!
+    @IBOutlet private weak var cartTotalLabel: UILabel!
     
-    @IBOutlet weak var payView: UIView!
-    @IBOutlet weak var checkoutButton: UIButton!
+    @IBOutlet private weak var payView: UIView!
+    @IBOutlet private weak var checkoutButton: UIButton!
     
     
-    var isSelected: Bool = true
+    private var isSelected: Bool = true
     
-    var basketViewModel = BasketViewModel()
+    private var basketViewModel = BasketViewModel()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -38,7 +38,7 @@ class BasketController: UIViewController {
     
     //MARK: - ConfigureUI Buttons
 
-    func configureUI() {
+    private func configureUI() {
         payView.layer.cornerRadius = 25
         checkoutButton.layer.cornerRadius = 10
     }

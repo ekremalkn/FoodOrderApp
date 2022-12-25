@@ -19,7 +19,7 @@ class SpecialDishesViewCell: UICollectionViewCell {
     @IBOutlet  private weak var image: UIImageView!
     @IBOutlet  private weak var titleLabel: UILabel!
     @IBOutlet  private weak var calorieLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet  private weak var descriptionLabel: UILabel!
     
     func configure(data: SpecialDishesViewCellProtocol) {
         image.sd_setImage(with: URL(string: data.specialImage))

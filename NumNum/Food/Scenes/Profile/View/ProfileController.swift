@@ -10,13 +10,13 @@ import Firebase
 
 class ProfileController: UIViewController {
     
-    @IBOutlet weak var table: UITableView!
+    @IBOutlet private weak var table: UITableView!
     
-    @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet private weak var signOutButton: UIButton!
     
     let profileViewModel = ProfileViewModel()
     
-    @IBOutlet weak var email: UILabel!
+    @IBOutlet private weak var email: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

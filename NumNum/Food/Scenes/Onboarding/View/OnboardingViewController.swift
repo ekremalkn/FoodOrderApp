@@ -13,11 +13,11 @@ class OnboardingViewController: UIViewController {
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var pageControl: UIPageControl!
     
-    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet private weak var skipButton: UIButton!
     
-    var slides: [OnboardingSlide] = []
+    private var slides: [OnboardingSlide] = []
     
-    var currentPage = 0 {
+    private var currentPage = 0 {
         didSet {
             pageControl.currentPage = currentPage
             if currentPage == slides.count - 1 {
@@ -39,20 +39,20 @@ class OnboardingViewController: UIViewController {
     
     //MARK: - UIView
     
-    func setSlides() {
+    private func setSlides() {
         slides = [OnboardingSlide(title: "Order your favourites", description: " ", image: #imageLiteral(resourceName: "onboarding1")),
-                  OnboardingSlide(title: "Get delivered to you within the shortest time", description: "", image: #imageLiteral(resourceName: "slide3"))
+                  OnboardingSlide(title: "Get delivered to you within the shortest time", description: "", image: #imageLiteral(resourceName: "onboarding2"))
         ]
     }
     
-    func setView() {
+    private func setView() {
         nextButton.layer.cornerRadius = 10
     }
     
     
     //MARK: - Show LogInScreen
     
-    func showLogInScreen() {
+    private func showLogInScreen() {
         let controller = storyboard?.instantiateViewController(withIdentifier: "LogInController") as! LogInController
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
