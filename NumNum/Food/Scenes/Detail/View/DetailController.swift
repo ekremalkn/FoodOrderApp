@@ -37,13 +37,15 @@ class DetailController: UIViewController {
     var items: Dish?
     var isSelected: Bool = true
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     //MARK: - StepperAction
-
+    
     @IBAction func stepperTapped(_ sender: UIStepper) {
         quantityLabel.text = String(Int(stepper.value))
         switch stepper.value {
@@ -67,36 +69,36 @@ class DetailController: UIViewController {
             return
         }
         
-        
-        
     }
     
     //MARK: - AddButtonAction
-
+    
     @IBAction func addBtnTapped(_ sender: UIButton) {
         configureAddBtn()
     }
     
     //MARK: - ConfigureUI
-
+    
     private func isHiddenUI(bool: Bool) {
         quantityLabel.isHidden = bool
         stepper.isHidden = bool
     }
     
     //MARK: - StepperFeatures
-
+    
     private func stepperFeatures() {
         stepper.value = 1
         quantityLabel.text = String(Int(stepper.value))
     }
     
     //MARK: - ConfigureAddButton
-
+    
     private func configureAddBtn() {
         if isSelected {
             isSelected = false
-            addBtn.setImage(UIImage(named: "Added"), for: .normal)
+            addBtn.setTitle("Added to cart", for: .normal)
+            addBtn.backgroundColor = UIColor(red: 249/255, green: 122/255, blue: 49/255, alpha: 1)
+            addBtn.layer.cornerRadius = 15
             createUsersData()
             showBasket()
             stepperFeatures()
@@ -105,7 +107,9 @@ class DetailController: UIViewController {
             
         } else {
             isSelected = true
-            addBtn.setImage(UIImage(named: "Add"), for: .normal)
+            addBtn.setTitle("Add to cart", for: .normal)
+            addBtn.backgroundColor = UIColor(red: 42/255, green: 168/255, blue: 137/255, alpha: 1)
+            addBtn.layer.cornerRadius = 15
             isHiddenUI(bool: isSelected)
             database.child("Users").child(currentUser?.uid ?? "").child(items?.name ?? "").removeValue { error, data in
                 if error != nil {
@@ -120,18 +124,15 @@ class DetailController: UIViewController {
     }
     
     //MARK: - ShowBasketController with PanModal
-
+    
     private func showBasket() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "\(BasketController.self)") as! BasketController
         self.presentPanModal(controller)
-        
-        
-        
     }
     
     //MARK: - CreateUsersData to Firebase
-
+    
     private func createUsersData() {
         if currentUser == nil {
             DuplicateFuncs.alertMessage(title: "Giriş yapmadınız!", message: "Sepete eklemeden önce giriş yapınız.", vc: self)
@@ -162,21 +163,23 @@ class DetailController: UIViewController {
     }
     
     //MARK: - Getting Data for Firebase
-
+    
     func getDataForFirebase(data: Dish) {
         items = data
     }
     
     //MARK: - Configure IBOutlets
-
+    
     func configure(data: DetailDishViewProtocol) {
         image.sd_setImage(with: URL(string: data.detailİmage))
         titleLabel.text = data.detailTitle
         calorieLabel.text = "~\(data.detailCalorie)kcal"
         descriptionLabel.text = data.detailDescription
+        addBtn.layer.cornerRadius = 15
     }
     
 }
+
 
 
 

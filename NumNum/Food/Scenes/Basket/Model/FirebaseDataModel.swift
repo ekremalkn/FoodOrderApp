@@ -9,7 +9,7 @@ import Foundation
 
 
 struct FirebaseDataModel: BasketViewCellProtocol {
-    
+   
     let name: String?
     let image: String?
     let calories: String?
@@ -28,5 +28,15 @@ struct FirebaseDataModel: BasketViewCellProtocol {
     var basketImage: String {
         image ?? ""
     }
+    
+    var basketDescription: String {
+        description ?? ""
+    }
+    
+    var basketCalorie: String {
+        calories ?? ""
+    }
+    
+    
     
 }

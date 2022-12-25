@@ -15,7 +15,7 @@ protocol CategoryDishesCellProtocol {
 }
 
 class CategoryDishesCell: UICollectionViewCell {
-
+    
     @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var calorieLabel: UILabel!
@@ -24,7 +24,7 @@ class CategoryDishesCell: UICollectionViewCell {
     func configure(data: CategoryDishesCellProtocol) {
         image.sd_setImage(with: URL(string: data.categoryDishesImage))
         titleLabel.text = data.categoryTitleLabel
-        calorieLabel.text = "\(data.categoryCalorieLabel)kcal"
+        calorieLabel.text = "~\(data.categoryCalorieLabel)kcal"
         
     }
 }

@@ -10,7 +10,6 @@ import UIKit
 class SearchController: UIViewController {
     
     @IBOutlet private weak var searchBar: UISearchBar!
-    
     @IBOutlet private  weak var topCollection: UICollectionView!
     
     private var searchViewModel = SearchViewModel()
@@ -25,6 +24,15 @@ class SearchController: UIViewController {
         isSucceed()
     }
     
+    //MARK: - Button actios
+
+    @IBAction func basketButtonTapped(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "BasketController") as! BasketController
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    //MARK: - Segmented actions
+
     @IBAction func didChangeCategory(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -48,13 +56,13 @@ class SearchController: UIViewController {
     }
     
     //MARK: - Register UINib's
-
+    
     private func collectionSetup() {
         topCollection.register(UINib(nibName: "\(SearchViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SearchViewCell.self)")
     }
     
     //MARK: - ViewModelConfiguration
-
+    
     private func getData() {
         searchViewModel.getSearchCategory()
         searchViewModel.getSearchDishes(catID: "cat1")
@@ -82,10 +90,9 @@ extension SearchController: UISearchBarDelegate {
                 Dish.name!.lowercased().contains(searchText.lowercased())
             }
             topCollection.reloadData()
-        }       
+        }
     }
 }
-
 
 //MARK: - CollectionViewMethods
 

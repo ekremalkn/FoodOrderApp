@@ -49,7 +49,7 @@ struct Category: Codable, CategoryViewCellProtocol {
 
 // MARK: - Dish
 struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, DetailDishViewProtocol, CategoryDishesCellProtocol, SearchViewCellProtocol {
-
+    
     let id, name, popularDescription, datumDescription: String?
     let image: String?
     let calories: Int?
@@ -77,6 +77,15 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         return ""
     }
     
+    var dishesCellDescription: String {
+        if popularDescription != nil {
+            return popularDescription ?? ""
+        } else if datumDescription != nil {
+            return datumDescription ?? ""
+        }
+        return ""
+    }
+    
     //MARK: -  SpecialDishesViewCellProtocol
     
     var specialImage: String {
@@ -95,6 +104,15 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         }
         return ""
         
+    }
+    
+    var specialDescription: String {
+        if popularDescription != nil {
+            return popularDescription ?? ""
+        } else if datumDescription != nil {
+            return datumDescription ?? ""
+        }
+        return ""
     }
     
     
@@ -162,8 +180,17 @@ struct Dish: Codable, DishesViewCellProtocol, SpecialDishesViewCellProtocol, Det
         return ""
     }
     
-
-
+    var searchDescriptionLabel: String {
+        if popularDescription != nil {
+            return popularDescription ?? ""
+        } else if datumDescription != nil {
+            return datumDescription ?? ""
+        }
+        return ""
+    }
+    
+    
+    
     
     
     

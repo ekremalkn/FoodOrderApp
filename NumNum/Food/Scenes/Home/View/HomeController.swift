@@ -13,7 +13,8 @@ class HomeController: UIViewController {
     @IBOutlet private weak var midCollection: UICollectionView!
     @IBOutlet private weak var bottomCollection: UICollectionView!
     private var homeViewModel = HomeViewModel()
-
+    
+    
     override func viewDidLoad() {
         collectionSetup()
         getData()
@@ -99,7 +100,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -131,8 +131,8 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
             return print("Did not show next VC")
         }
         
-        
     }
     
-    
 }
+
+

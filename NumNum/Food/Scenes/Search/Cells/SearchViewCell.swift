@@ -14,6 +14,7 @@ protocol SearchViewCellProtocol {
     var searchCellImage: String { get }
     var searchTitleLabel: String { get }
     var searchCalorieLabel: String { get }
+    var searchDescriptionLabel: String { get }
 }
 class SearchViewCell: UICollectionViewCell {
     
@@ -25,11 +26,13 @@ class SearchViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     func configure(data: SearchViewCellProtocol) {
         image.sd_setImage(with: URL(string: data.searchCellImage))
         image.layer.cornerRadius = 10
         titleLabel.text = data.searchTitleLabel
-        calorieLabel.text = "\(data.searchCalorieLabel)kcal"
+        descriptionLabel.text = data.searchDescriptionLabel
+        calorieLabel.text = "~\(data.searchCalorieLabel)kcal"
     }
 }

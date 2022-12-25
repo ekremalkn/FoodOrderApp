@@ -12,12 +12,13 @@ class SignUpController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     
     let database = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
         
     }
     
@@ -40,7 +41,12 @@ class SignUpController: UIViewController {
         
     }
     
-    
-    
-    
+    //MARK: - ConfigureUI elements
+
+    func configureUI() {
+        signUpButton.layer.cornerRadius = 15
+        emailTextField.layer.cornerRadius = 10
+        passwordTextField.layer.cornerRadius = 10
+    }
+   
 }

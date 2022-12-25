@@ -78,8 +78,6 @@ class HomeViewModel {
         
     }
     
-    
-    
 }
 
 

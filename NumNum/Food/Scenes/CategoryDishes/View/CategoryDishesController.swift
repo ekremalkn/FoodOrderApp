@@ -12,7 +12,7 @@ class CategoryDishesController: UIViewController {
     @IBOutlet private weak var collection: UICollectionView!
     private var dishArray = [Dish]()
     var categoryName: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionSetup()
@@ -25,7 +25,7 @@ class CategoryDishesController: UIViewController {
     func configure(data: [Dish]) {
         dishArray = data
     }
-  
+    
 }
 
 //MARK: - CollectionViewMethods
@@ -52,11 +52,6 @@ extension CategoryDishesController: UICollectionViewDataSource, UICollectionView
         controller.getDataForFirebase(data: dishArray[indexPath.row] )
         controller.configure(data: dishArray[indexPath.row])
     }
-    
-    
-    
-    
-    
-    
+  
 }
 

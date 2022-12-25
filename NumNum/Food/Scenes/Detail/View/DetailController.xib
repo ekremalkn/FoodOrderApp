@@ -52,10 +52,14 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPf-ST-lW7">
                     <rect key="frame" x="219" y="757" width="158" height="46"/>
+                    <color key="backgroundColor" red="0.1666220427" green="0.65792578459999995" blue="0.53711551430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="Add To cart" image="Add">
+                    <state key="normal" title="Add to cart">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <buttonConfiguration key="configuration" style="plain" title="Add to cart">
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
                     <connections>
                         <action selector="addBtnTapped:" destination="-1" eventType="touchUpInside" id="1bn-5w-Wtb"/>
                     </connections>
@@ -108,7 +112,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Add" width="166" height="54"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

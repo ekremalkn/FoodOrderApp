@@ -12,9 +12,13 @@ class LogInController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
         
     }
     
@@ -37,12 +41,20 @@ class LogInController: UIViewController {
         
     }
     
+    //MARK: - To SignUp VC
+
     @IBAction func toSignUpVC(_ sender: Any) {
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
         self.present(controller, animated: true)
     }
     
-    
-    
-    
+    //MARK: - ConfigureUI elements
+
+    func configureUI() {
+        logInButton.layer.cornerRadius = 15
+        signUpButton.layer.cornerRadius = 15
+        emailTextField.layer.cornerRadius = 10
+        passwordTextField.layer.cornerRadius = 10
+    }
+
 }

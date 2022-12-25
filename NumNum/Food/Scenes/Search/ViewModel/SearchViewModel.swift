@@ -14,8 +14,6 @@ class SearchViewModel {
     var searchCategories = [Category]()
     var searchDishes = [Dish]()
     
-    
-    
     var errorCallback: ((String)->())?
     var successCallback: (()->())?
     
